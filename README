@@ -1,0 +1,12 @@
+Si tienes un viejo portatil que se apaga por recalentameinto te puede ser util.
+
+cpuMemE16 Es un epplet para Enlightenment 16 que monitoriza la memoria.
+
+cpuStatE16 Es un epplet para Enlightenment 16 que monitoriza la temperatura y velocidad del procesador.
+
+tempManager es un programa que baja la velocidad del procesador al minimo cuando la temperatura es superior 
+a 97 grados, y la devuelve el regimen normal cuando la temperatura baja (es necesario poner en el cron este 
+programa ).
+
+Si tienes alguna sugerencia puedes escribir a zipotron@gmail.com, las quejas te las puedes meter por el 
+culo.
