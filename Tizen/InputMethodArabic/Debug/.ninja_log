@@ -1,0 +1,10 @@
+# ninja log v5
+4	5505	0	src/inputmethodeditor.o	26613ecb83746eaf
+5508	7372	0	libinputmethodeditor.so	8e2fc243ca822bf7
+16	1935	0	libinputmethodeditor.so	8e2fc243ca822bf7
+5	2276	0	src/inputmethodeditor.o	26613ecb83746eaf
+2276	4276	0	libinputmethodeditor.so	8e2fc243ca822bf7
+1	1184	0	clean_sa	774a704ff383e1b
+1184	1197	0	clean	d59b6dac04fa9b5d
+4	1052	0	src/inputmethodeditor.o	26613ecb83746eaf
+1052	2201	0	libinputmethodeditor.so	8e2fc243ca822bf7

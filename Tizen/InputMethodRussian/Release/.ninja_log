@@ -1,0 +1,25 @@
+# ninja log v5
+0	2442	0	src/inputmethodeditor.o	39dfbbb35a26c305
+2446	4150	0	libinputmethodeditor.so	22db80d2aa8def71
+0	1411	0	clean_sa	774a704ff383e1b
+1411	1420	0	clean	d59b6dac04fa9b5d
+6	1420	0	src/inputmethodeditor.o	39dfbbb35a26c305
+1421	2537	0	librussianinputmethod.so	894b2fbf7f63728d
+1	1110	0	clean_sa	774a704ff383e1b
+1110	1123	0	clean	d59b6dac04fa9b5d
+0	987	0	clean_sa	774a704ff383e1b
+987	1000	0	clean	d59b6dac04fa9b5d
+4	1412	0	src/inputmethodeditor.o	39dfbbb35a26c305
+1412	2590	0	librussianinputmethod.so	894b2fbf7f63728d
+1	1376	0	clean_sa	774a704ff383e1b
+1376	1386	0	clean	d59b6dac04fa9b5d
+4	1810	0	src/inputmethodeditor.o	39dfbbb35a26c305
+1810	3155	0	librussianinputmethod.so	894b2fbf7f63728d
+0	1763	0	clean_sa	774a704ff383e1b
+1763	1772	0	clean	d59b6dac04fa9b5d
+3	1638	0	src/inputmethodeditor.o	39dfbbb35a26c305
+1639	3024	0	librussianinputmethod.so	894b2fbf7f63728d
+0	1604	0	clean_sa	774a704ff383e1b
+1604	1625	0	clean	d59b6dac04fa9b5d
+4	1502	0	src/inputmethodeditor.o	39dfbbb35a26c305
+1502	2705	0	librussianinputmethod.so	894b2fbf7f63728d
