@@ -6,46 +6,54 @@
 const int REFRESCO = 5;
 int carga[2];
 Epplet_gadget botonCerrar;
-Epplet_gadget *barras;
+Epplet_gadget barras[2];
 Epplet_gadget visorNumerico;
 Epplet_gadget visorTemperatura;
-char* texto;
-char* textoTemperatura;
+char texto[64];
+char textoTemperatura[6];
 int temperatura=0;
 
 static void enFoco(void *data, Window w){
   if (w == Epplet_get_main_window())
      {
-	Epplet_gadget_show(botonCerrar);
+		Epplet_gadget_show(botonCerrar);
      }
   return;
   data = NULL;
 }
+
 static void fueraFoco(void *data, Window w){
   if (w == Epplet_get_main_window())
      {
-	Epplet_gadget_hide(botonCerrar);
+		Epplet_gadget_hide(botonCerrar);
      }
   return;
   data = NULL;
 }
+
 void temporizador(void *datos){
   FILE *aTemp;
-  aTemp=fopen("/sys/class/hwmon/hwmon0/temp1_input","r");
-  if(fgets(textoTemperatura,3,aTemp)!=0) temperatura=atoi(textoTemperatura);
-  fclose(aTemp);
+  if((aTemp=fopen("/sys/class/thermal/thermal_zone1/temp","r")) ||
+	(aTemp=fopen("/sys/class/hwmon/hwmon0/temp1_input","r")))
+	{
+	  if(fgets(textoTemperatura,3,aTemp)!=0)
+			temperatura=atoi(textoTemperatura);
+	  fclose(aTemp);
+	  carga[1]=temperatura;
+	  strcat(textoTemperatura," C");
+    } else
+	  sprintf(textoTemperatura,"N/D");
   
   glibtop_mem memoria;
   /*glibtop_swap intercambio;*/
   glibtop_get_mem(&memoria);
   /*glibtop_get_swap(&intercambio);*/
   carga[0]=((float)memoria.used*100)/(float)memoria.total;
-  carga[1]=temperatura;
+  
   sprintf(texto,"%d%% %4.f / %4.f",carga[0],(float)memoria.total/1000000,(float)memoria.used/1000000);
   Epplet_gadget_data_changed(barras[0]);
   Epplet_gadget_data_changed(barras[1]);
   Epplet_change_label(visorNumerico,texto);
-  strcat(textoTemperatura," C");
   
   Epplet_change_label(visorTemperatura,textoTemperatura);
   Esync();
@@ -62,10 +70,7 @@ void cerrar(void *datos){
 
 int main (int argc, char **argv)
 {
-  texto=malloc(64);
-  textoTemperatura=malloc(6);
   atexit(Epplet_cleanup);
-  barras = malloc(sizeof(Epplet_gadget) * 2);
   Epplet_Init("E-cpuMem", "0.1", "Enlightenment memory usage",
 	       5, 3, argc, argv, 0);
   Epplet_timer(temporizador, NULL, 0, "TIMER");
@@ -87,9 +92,6 @@ int main (int argc, char **argv)
   Epplet_gadget_show(visorNumerico);
   Epplet_show();
   Epplet_Loop();
-  
-  free(textoTemperatura);
-  free(texto);
-  
+
   return 0;
 }
