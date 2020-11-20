@@ -33,7 +33,7 @@ static void fueraFoco(void *data, Window w){
 
 void temporizador(void *datos){
   FILE *aTemp;
-  if((aTemp=fopen("/sys/class/thermal/thermal_zone1/temp","r")) ||
+  if((aTemp=fopen("/sys/class/thermal/thermal_zone0/temp","r")) ||
 	(aTemp=fopen("/sys/class/hwmon/hwmon0/temp1_input","r")))
 	{
 	  if(fgets(textoTemperatura,3,aTemp)!=0)
@@ -50,7 +50,7 @@ void temporizador(void *datos){
   /*glibtop_get_swap(&intercambio);*/
   carga[0]=((float)memoria.used*100)/(float)memoria.total;
   
-  sprintf(texto,"%d%% %4.f / %4.f",carga[0],(float)memoria.total/1000000,(float)memoria.used/1000000);
+  sprintf(texto,"%d%% %4.f / %4.f",carga[0],(float)memoria.used/1000000,(float)memoria.total/1000000);
   Epplet_gadget_data_changed(barras[0]);
   Epplet_gadget_data_changed(barras[1]);
   Epplet_change_label(visorNumerico,texto);
