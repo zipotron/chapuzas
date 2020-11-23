@@ -1,5 +1,3 @@
-# Daniel Erat, erat@cats.ucsc.edu
-
 IMLIB_CFLAGS = `imlib-config --cflags`
 IMLIB_LIBS = `imlib-config --libs`
 GCCOPTS = -MMD -Wall
